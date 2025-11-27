@@ -19,11 +19,13 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
-
-      # Use mvn clean and package as the standard maven build phase
       - run:
           name: Iniciando  
-          command: "Iniciando echo papeline"
+          command: "echo Iniciando papeline"
+      # Use mvn clean and package as the standard maven build phase
+      - run:
+          name: Build 
+          command: mvn -B -DskipTests clean package
       # Then run your tests!
       - run:
           name: Pruebas calculadora
